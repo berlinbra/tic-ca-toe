@@ -4,10 +4,11 @@ class TicTacToe:
         self.current_player = 'X'
 
     def print_board(self):
+        print('\n')
         for i, row in enumerate(self.board):
-            print('|'.join(row))
+            print(f" {row[0]} | {row[1]} | {row[2]} ")
             if i < 2:
-                print('-' * 5)
+                print('-----------')
 
     def make_move(self, row, col):
         if 0 <= row < 3 and 0 <= col < 3 and self.board[row][col] == ' ':
@@ -18,7 +19,7 @@ class TicTacToe:
     def check_winner(self):
         # Check rows
         for row in self.board:
-            if row.count(row[0]) == 3 and row[0] != ' ':
+            if row[0] == row[1] == row[2] != ' ':
                 return row[0]
 
         # Check columns
@@ -33,7 +34,7 @@ class TicTacToe:
             return self.board[0][2]
 
         # Check for tie
-        if all(self.board[i][j] != ' ' for i in range(3) for j in range(3)):
+        if all(cell != ' ' for row in self.board for cell in row):
             return 'Tie'
 
         return None
@@ -41,32 +42,33 @@ class TicTacToe:
     def switch_player(self):
         self.current_player = 'O' if self.current_player == 'X' else 'X'
 
-def play_game():
+def main():
     game = TicTacToe()
+    print("Welcome to Tic Tac Toe!")
+    print("Enter moves using row (0-2) and column (0-2)")
     
     while True:
         game.print_board()
-        print(f"Player {game.current_player}'s turn")
+        print(f"\nPlayer {game.current_player}'s turn")
         
         try:
-            row = int(input('Enter row (0-2): '))
-            col = int(input('Enter column (0-2): '))
+            row = int(input("Enter row (0-2): "))
+            col = int(input("Enter column (0-2): "))
             
             if game.make_move(row, col):
                 winner = game.check_winner()
                 if winner:
                     game.print_board()
                     if winner == 'Tie':
-                        print('Game ended in a tie!')
+                        print("\nGame Over! It's a tie!")
                     else:
-                        print(f'Player {winner} wins!')
+                        print(f"\nGame Over! Player {winner} wins!")
                     break
                 game.switch_player()
             else:
-                print('Invalid move! Try again.')
+                print("\nInvalid move! Try again.")
         except ValueError:
-            print('Please enter valid numbers!')
+            print("\nPlease enter valid numbers!")
 
 if __name__ == '__main__':
-    print('Welcome to Tic Tac Toe!')
-    play_game()
+    main()
