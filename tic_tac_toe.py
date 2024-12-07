@@ -6,7 +6,7 @@ class TicTacToe:
     def print_board(self):
         print('\n')
         for i, row in enumerate(self.board):
-            print(f" {row[0]} | {row[1]} | {row[2]} ")
+            print(f' {row[0]} | {row[1]} | {row[2]} ')
             if i < 2:
                 print('-----------')
 
@@ -44,31 +44,31 @@ class TicTacToe:
 
 def main():
     game = TicTacToe()
-    print("Welcome to Tic Tac Toe!")
-    print("Enter moves using row (0-2) and column (0-2)")
+    print('Welcome to Tic Tac Toe!')
+    print('Enter moves using row (0-2) and column (0-2)')
     
     while True:
         game.print_board()
         print(f"\nPlayer {game.current_player}'s turn")
         
         try:
-            row = int(input("Enter row (0-2): "))
-            col = int(input("Enter column (0-2): "))
+            row = int(input('Enter row (0-2): '))
+            col = int(input('Enter column (0-2): '))
             
             if game.make_move(row, col):
                 winner = game.check_winner()
                 if winner:
                     game.print_board()
                     if winner == 'Tie':
-                        print("\nGame Over! It's a tie!")
+                        print('\nGame Over! It\'s a tie!')
                     else:
-                        print(f"\nGame Over! Player {winner} wins!")
+                        print(f'\nGame Over! Player {winner} wins!')
                     break
                 game.switch_player()
             else:
-                print("\nInvalid move! Try again.")
+                print('\nInvalid move! Try again.')
         except ValueError:
-            print("\nPlease enter valid numbers!")
+            print('\nPlease enter valid numbers!')
 
 if __name__ == '__main__':
     main()
