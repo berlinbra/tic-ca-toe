@@ -1,4 +1,4 @@
-# Tic Tac Toe
+# Tic Ca Toe
 
 A simple command-line implementation of the classic Tic Tac Toe game in Python.
 
@@ -8,41 +8,33 @@ A simple command-line implementation of the classic Tic Tac Toe game in Python.
 - Command-line interface
 - Input validation
 - Win detection
-- Tie game detection
+- Draw detection
 
 ## How to Play
 
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/berlinbra/tic-ca-toe.git
-   cd tic-ca-toe
-   ```
-
+1. Clone the repository
 2. Run the game:
    ```bash
    python tic_tac_toe.py
    ```
+3. Players take turns entering row (0-2) and column (0-2) coordinates to place their mark
+4. First player to get three in a row (horizontally, vertically, or diagonally) wins
 
-3. Game Rules:
-   - Players take turns placing their mark (X or O)
-   - Enter row (0-2) and column (0-2) when prompted
-   - First player to get 3 in a row wins
-   - If board fills up with no winner, game is a tie
+## Game Rules
 
-## Board Layout
-```
- 0 1 2  <- Columns
-0 | | 
------------
-1 | | 
------------
-2 | | 
-^
-Rows
-```
+- Player 1 uses 'X'
+- Player 2 uses 'O'
+- Players take turns placing their marks
+- First to get three in a row wins
+- If the board fills up with no winner, it's a draw
 
 ## Requirements
-- Python 3.x
 
-## License
-This project is open source and available under the MIT License.
+- Python 3.6 or higher
+
+## Future Improvements
+
+- Add AI opponent
+- Implement GUI interface
+- Add game statistics
+- Add replay functionality

@@ -1,4 +1,4 @@
-# Python
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
 *$py.class
@@ -14,11 +14,14 @@ env/
 .env/
 
 # IDE specific files
-.vscode/
 .idea/
+.vscode/
 *.swp
-*.swo
 
-# Operating System
+# Local development settings
+*.env
+.env.local
+
+# System Files
 .DS_Store
 Thumbs.db
